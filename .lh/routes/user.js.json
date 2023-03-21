@@ -1,0 +1,26 @@
+{
+    "sourceFile": "routes/user.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679413365107,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679413374861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,6 +5,6 @@\n \n router.post('/signup', userCtrl.signup);\n router.post('/login', userCtrl.login);\n \n-\n+console.log(\"router\");\n module.exports = router;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1679413380511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,6 +5,6 @@\n \n router.post('/signup', userCtrl.signup);\n router.post('/login', userCtrl.login);\n \n-console.log(\"router\");\n+console.log(\"router user\");\n module.exports = router;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1679413365107,
+            "name": "Commit-0",
+            "content": "const express = require('express');\nconst router = express.Router();\n\nconst userCtrl = require('../controllers/user');\n\nrouter.post('/signup', userCtrl.signup);\nrouter.post('/login', userCtrl.login);\n\n\nmodule.exports = router;"
+        }
+    ]
+}

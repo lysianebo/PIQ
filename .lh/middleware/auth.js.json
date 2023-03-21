@@ -1,0 +1,22 @@
+{
+    "sourceFile": "middleware/auth.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1679413007302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679413012378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n         const token = req.headers.authorization.split(' ')[1];\n         const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');\n         const userId = decodedToken.userId;\n         req.auth = {userId}\n-        console.log(\"\");\n+        console.log(\"auth.js\");\n         if (req.body.userId && req.body.userId !== userId) {\n             throw 'Invalid user ID';\n         } else {\n             next();\n"
+                }
+            ],
+            "date": 1679413007302,
+            "name": "Commit-0",
+            "content": "const jwt = require('jsonwebtoken');\n\nmodule.exports = (req, res, next) => {\n    try {\n        const token = req.headers.authorization.split(' ')[1];\n        const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');\n        const userId = decodedToken.userId;\n        req.auth = {userId}\n        console.log(\"\");\n        if (req.body.userId && req.body.userId !== userId) {\n            throw 'Invalid user ID';\n        } else {\n            next();\n        }\n    } catch(error) {\n        res.status(401).json({\n            error:error | 'Invalid request!'\n        });\n    }\n};"
+        }
+    ]
+}

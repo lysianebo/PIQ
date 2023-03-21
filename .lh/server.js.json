@@ -1,0 +1,22 @@
+{
+    "sourceFile": "server.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1679223776968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679223786057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,5 +45,5 @@\n   const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port;\n   console.log('Listening on ' + bind);\n });\n \n-server.listen(port);n\n+server.listen(port);\n"
+                }
+            ],
+            "date": 1679223776968,
+            "name": "Commit-0",
+            "content": "const http = require('http');\nconst app = require('./app');\n\nconst normalizePort = val => {\n  const port = parseInt(val, 10);\n\n  if (isNaN(port)) {\n    return val;\n  }\n  if (port >= 0) {\n    return port;\n  }\n  return false;\n};\nconst port = normalizePort(process.env.PORT || '3000');\napp.set('port', port);\n\nconst errorHandler = error => {\n  if (error.syscall !== 'listen') {\n    throw error;\n  }\n  const address = server.address();\n  const bind = typeof address === 'string' ? 'pipe ' + address : 'port: ' + port;\n  switch (error.code) {\n    case 'EACCES':\n      console.error(bind + ' requires elevated privileges.');\n      process.exit(1);\n      break;\n    case 'EADDRINUSE':\n      console.error(bind + ' is already in use.');\n      process.exit(1);\n      break;\n    default:\n      throw error;\n  }\n};\n\nconsole.log(\"server\");\n\nconst server = http.createServer(app);\n\nserver.on('error', errorHandler);\nserver.on('listening', () => {\n  const address = server.address();\n  const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port;\n  console.log('Listening on ' + bind);\n});\n\nserver.listen(port);n\n"
+        }
+    ]
+}

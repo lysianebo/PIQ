@@ -1,0 +1,34 @@
+{
+    "sourceFile": "models/Sauce.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1679413258933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679413288032,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const mongoose = require('mongoose');\n \n-console.log(\"model sauces\");\n+console.log(\"model Sauces\");\n \n \n const sauceSchema = mongoose.Schema({\n   title: { type: String, required: true },\n"
+                },
+                {
+                    "date": 1679413654326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,19 @@\n-const mongoose = require('mongoose');\n+const mongoose = require( 'mongoose' );\n \n-console.log(\"model Sauces\");\n+console.log(\"model Sauce\");\n \n-\n const sauceSchema = mongoose.Schema({\n-  title: { type: String, required: true },\n-  description: { type: String, required: true },\n-  imageUrl: { type: String, required: true },\n-  userId: { type: String, required: true },\n-  price: { type: Number, required: true },\n-});\n\\ No newline at end of file\n-\n-module.exports = mongoose.model('Sauce', sauceSchema);\n+    \n+userId: { type: String, required: true },\n+name: { type: String, required: true },\n+manufacturer: { type: String, required: true },\n+description: { type: String, required: true },\n+mainPepper: { type: String, required: true },\n+imageUrl: { type: String, required: true },\n+heat: { type: Number, required: true },\n+likes: { type: Number, required: true },\n+dislikes: { type: Number, required: true },\n+usersLiked: { type: [], required: true },\n+usersDisliked: { type: [], required: true },\n+})\n+module.exports = mongoose.model('Sauce', sauceSchema)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1679413764645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,14 @@\n-const mongoose = require( 'mongoose' );\n+const mongoose = require('mongoose');\n \n console.log(\"model Sauce\");\n \n+\n const sauceSchema = mongoose.Schema({\n-    \n-userId: { type: String, required: true },\n-name: { type: String, required: true },\n-manufacturer: { type: String, required: true },\n-description: { type: String, required: true },\n-mainPepper: { type: String, required: true },\n-imageUrl: { type: String, required: true },\n-heat: { type: Number, required: true },\n-likes: { type: Number, required: true },\n-dislikes: { type: Number, required: true },\n-usersLiked: { type: [], required: true },\n-usersDisliked: { type: [], required: true },\n\\ No newline at end of file\n-})\n-module.exports = mongoose.model('Sauce', sauceSchema)\n+  title: { type: String, required: true },\n+  description: { type: String, required: true },\n+  imageUrl: { type: String, required: true },\n+  userId: { type: String, required: true },\n+  price: { type: Number, required: true },\n+});\n+\n+module.exports = mongoose.model('Sauce', sauceSchema);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1679413770642,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,19 @@\n-const mongoose = require('mongoose');\n+const mongoose = require( 'mongoose' );\n \n console.log(\"model Sauce\");\n \n-\n const sauceSchema = mongoose.Schema({\n-  title: { type: String, required: true },\n-  description: { type: String, required: true },\n-  imageUrl: { type: String, required: true },\n-  userId: { type: String, required: true },\n-  price: { type: Number, required: true },\n-});\n-\n\\ No newline at end of file\n-module.exports = mongoose.model('Sauce', sauceSchema);\n+    \n+userId: { type: String, required: true },\n+name: { type: String, required: true },\n+manufacturer: { type: String, required: true },\n+description: { type: String, required: true },\n+mainPepper: { type: String, required: true },\n+imageUrl: { type: String, required: true },\n+heat: { type: Number, required: true },\n+likes: { type: Number, required: true },\n+dislikes: { type: Number, required: true },\n+usersLiked: { type: [], required: true },\n+usersDisliked: { type: [], required: true },\n+})\n+module.exports = mongoose.model('Sauce', sauceSchema)\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1679413258933,
+            "name": "Commit-0",
+            "content": "const mongoose = require('mongoose');\n\nconsole.log(\"model sauces\");\n\n\nconst sauceSchema = mongoose.Schema({\n  title: { type: String, required: true },\n  description: { type: String, required: true },\n  imageUrl: { type: String, required: true },\n  userId: { type: String, required: true },\n  price: { type: Number, required: true },\n});\n\nmodule.exports = mongoose.model('Sauce', sauceSchema);"
+        }
+    ]
+}

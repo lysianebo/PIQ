@@ -1,0 +1,46 @@
+{
+    "sourceFile": "controllers/user.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1679410597538,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679410606224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,19 +25,19 @@\n             }\n             bcrypt.compare(req.body.password, user.password)\n             .then(valid => {\n                 if (!valid) {\n-                return res.status(401).json({ error: 'Mot de passe incorrect !' });\n+                return res.status(401).json({ error: 'Mot de passe incorrect !' })\n                 }\n                 res.status(200).json({\n                 userId: user._id,\n                 token: jwt.sign(\n                     { userId: user._id },\n                     'RANDOM_TOKEN_SECRET',\n                     { expiresIn: '24h' }\n                 )\n-                });\n+                })\n             })\n-            .catch(error => res.status(500).json({ error }));\n+            .catch(error => res.status(500).json({ error }))\n\\ No newline at end of file\n         })\n         .catch(error => res.status(500).json({ error }))\n-};\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1679410612245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,18 +11,18 @@\n             password: hash\n             });\n             user.save()\n             .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))\n-            .catch(error => res.status(400).json({ error }));\n+            .catch(error => res.status(400).json({ error }))\n         })\n-        .catch(error => res.status(500).json({ error }));\n+        .catch(error => res.status(500).json({ error }))\n };\n \n exports.login = (req, res, next) => {\n     User.findOne({ email: req.body.email })\n         .then(user => {\n             if (!user) {\n-            return res.status(401).json({ error: 'Utilisateur non trouvé !' });\n+            return res.status(401).json({ error: 'Utilisateur non trouvé !' })\n             }\n             bcrypt.compare(req.body.password, user.password)\n             .then(valid => {\n                 if (!valid) {\n"
+                },
+                {
+                    "date": 1679410619878,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,16 @@\n const bcrypt = require('bcrypt');\n const jwt = require('jsonwebtoken');\n \n-const User = require('../models/User');\n+const User = require('../models/User')\n \n exports.signup = (req, res, next) => {\n     bcrypt.hash(req.body.password, 10)\n         .then(hash => {\n             const user = new User({\n             email: req.body.email,\n             password: hash\n-            });\n+            })\n             user.save()\n             .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))\n             .catch(error => res.status(400).json({ error }))\n         })\n"
+                },
+                {
+                    "date": 1679410634671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n const bcrypt = require('bcrypt');\n-const jwt = require('jsonwebtoken');\n+const jwt = require('jsonwebtoken')\n \n const User = require('../models/User')\n \n exports.signup = (req, res, next) => {\n"
+                },
+                {
+                    "date": 1679410645926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-const bcrypt = require('bcrypt');\n+const bcrypt = require('bcrypt')\n const jwt = require('jsonwebtoken')\n \n const User = require('../models/User')\n \n"
+                },
+                {
+                    "date": 1679413411804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,5 +39,5 @@\n             })\n             .catch(error => res.status(500).json({ error }))\n         })\n         .catch(error => res.status(500).json({ error }))\n-}\n\\ No newline at end of file\n+}\n"
+                },
+                {
+                    "date": 1679413434365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,4 +40,5 @@\n             .catch(error => res.status(500).json({ error }))\n         })\n         .catch(error => res.status(500).json({ error }))\n }\n+console.log(\"controller user\");\n"
+                }
+            ],
+            "date": 1679410597538,
+            "name": "Commit-0",
+            "content": "const bcrypt = require('bcrypt');\nconst jwt = require('jsonwebtoken');\n\nconst User = require('../models/User');\n\nexports.signup = (req, res, next) => {\n    bcrypt.hash(req.body.password, 10)\n        .then(hash => {\n            const user = new User({\n            email: req.body.email,\n            password: hash\n            });\n            user.save()\n            .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))\n            .catch(error => res.status(400).json({ error }));\n        })\n        .catch(error => res.status(500).json({ error }));\n};\n\nexports.login = (req, res, next) => {\n    User.findOne({ email: req.body.email })\n        .then(user => {\n            if (!user) {\n            return res.status(401).json({ error: 'Utilisateur non trouvé !' });\n            }\n            bcrypt.compare(req.body.password, user.password)\n            .then(valid => {\n                if (!valid) {\n                return res.status(401).json({ error: 'Mot de passe incorrect !' });\n                }\n                res.status(200).json({\n                userId: user._id,\n                token: jwt.sign(\n                    { userId: user._id },\n                    'RANDOM_TOKEN_SECRET',\n                    { expiresIn: '24h' }\n                )\n                });\n            })\n            .catch(error => res.status(500).json({ error }));\n        })\n        .catch(error => res.status(500).json({ error }))\n};"
+        }
+    ]
+}

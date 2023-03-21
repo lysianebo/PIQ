@@ -1,0 +1,30 @@
+{
+    "sourceFile": "middleware/multer-config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1679413149594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679413159891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n };\n \n const storage = multer.diskStorage({\n   destination: (req, file, callback) => {\n-      console.log('multer');\n+      console.log('multer disk');\n       callback(null, 'images');\n   },\n   filename: (req, file, callback) => {\n       console.log('ouuuuupsxxx');\n"
+                },
+                {
+                    "date": 1679413181329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,13 +7,13 @@\n };\n \n const storage = multer.diskStorage({\n   destination: (req, file, callback) => {\n-      console.log('multer disk');\n+      console.log('multer diskStorage');\n       callback(null, 'images');\n   },\n   filename: (req, file, callback) => {\n-      console.log('ouuuuupsxxx');\n+      console.log('callback');\n       // console.log(req.file);\n       // console.log(file);\n       const name = file.originalname.split(' ').join('_');\n     const extension = MIME_TYPES[file.mimetype];\n"
+                },
+                {
+                    "date": 1679413204978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n       callback(null, 'images');\n   },\n   filename: (req, file, callback) => {\n       console.log('callback');\n-      // console.log(req.file);\n+      console.log(req.file);\n       // console.log(file);\n       const name = file.originalname.split(' ').join('_');\n     const extension = MIME_TYPES[file.mimetype];\n     callback(null, name + Date.now() + '.' + extension);\n"
+                }
+            ],
+            "date": 1679413149594,
+            "name": "Commit-0",
+            "content": "const multer = require('multer');\n\nconst MIME_TYPES = {\n  'image/jpg': 'jpg',\n  'image/jpeg': 'jpg',\n  'image/png': 'png'\n};\n\nconst storage = multer.diskStorage({\n  destination: (req, file, callback) => {\n      console.log('multer');\n      callback(null, 'images');\n  },\n  filename: (req, file, callback) => {\n      console.log('ouuuuupsxxx');\n      // console.log(req.file);\n      // console.log(file);\n      const name = file.originalname.split(' ').join('_');\n    const extension = MIME_TYPES[file.mimetype];\n    callback(null, name + Date.now() + '.' + extension);\n  }\n});\n\nmodule.exports = multer({storage}).single('image');"
+        }
+    ]
+}
